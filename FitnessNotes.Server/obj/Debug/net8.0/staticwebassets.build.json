@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "xnDuZAa5Op8kODlOzv6/HR4a2QwHHgf2gWi7Kq70cMY=",
+  "Source": "FitnessNotes.Server",
+  "BasePath": "_content/FitnessNotes.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\eduard.popa\\Desktop\\FitnessNotes\\fitnessnotes.client\\fitnessnotes.client.esproj",
+      "Version": 2,
+      "Source": "fitnessnotes.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
