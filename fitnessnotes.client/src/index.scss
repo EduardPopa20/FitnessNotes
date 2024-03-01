@@ -1,3 +1,10 @@
+@use "./scss/utils/variables" as variables;
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +18,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  width: 100%;
 }
 
 a {
@@ -23,16 +32,16 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100%;
+  height: 100%;
+  margin: 0px;
 }
 
 #root {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
 }
 
 h1 {
@@ -40,17 +49,6 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
 button:hover {
   border-color: #646cff;
 }
@@ -70,4 +68,20 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.custom-button {
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  background-color: map-get($map: variables.$colors, $key: secondaryColor) !important;
+
+  &:hover {
+    background-color: map-get($map: variables.$colors, $key: mainColor) !important;
+    color: map-get($map: variables.$colors, $key: white) !important;
+  }
+
 }

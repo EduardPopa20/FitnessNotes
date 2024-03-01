@@ -1,0 +1,37 @@
+@use '../../scss/utils/variables' as variables;
+
+.register-page {
+    &__wrapper {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    &__form {
+       width: 100% !important;
+       max-width: 768px !important;
+    }
+
+    &__sign-in-link {
+        color: map-get(variables.$colors, mainColorLighter);
+        font-weight: 600;
+        &:hover {
+            color: map-get(variables.$colors, mainColor);
+        }
+    }
+
+    &__height-weight-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .register-page {
+        &__height-weight-container {
+            flex-direction: column;
+        }
+        &__wrapper {
+            padding: 0 20px !important;
+        }
+    }
+}
