@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Box, InputAdornment, TextField, Typography, Button, Container } from "@mui/material";
 import { PasswordOutlined, AccountCircleOutlined } from "@mui/icons-material";
 
+import { Link } from "react-router-dom";
+
 import FacebookIcon from "../../assets/facebook.png"
 import GoogleIcon from "../../assets/google.png"
 import InstagramIcon from "../../assets/instagram.png"
@@ -68,7 +70,7 @@ const Login = () => {
                                     <InputAdornment
                                         className="login-page__adornment"
                                         position="start"
-                                        sx={{ color: focusedEmailAdornment ? "#fb8c00" : "" }}>
+                                        sx={{ color: focusedEmailAdornment ? "#fb6200" : "" }}>
                                         <AccountCircleOutlined />
                                     </InputAdornment>
                                 ),
@@ -85,7 +87,7 @@ const Login = () => {
                                     <InputAdornment
                                         className="login-page__input-adornment"
                                         position="start"
-                                        sx={{ color: focusedPasswordAdornment ? "#fb8c00" : "" }}>
+                                        sx={{ color: focusedPasswordAdornment ? "#fb6200" : "" }}>
                                         <PasswordOutlined />
                                     </InputAdornment>
                                 ),
@@ -127,13 +129,20 @@ const Login = () => {
                     <Button
                         variant="outlined"
                         className="custom-button login-page__sign-in-button"
-                        sx={{ ":hover": { color: "#fb8c00" }, marginBottom: "10px" }}>
+                        sx={{ marginBottom: "10px" }}>
                         Sign In
                     </Button>
-                    <Typography
-                        className="login-page__forgot-password"
-                    >
-                        Forgot password?
+                    <Typography>
+                        <Link
+                            className="custom-link login-page__forgot-password-link"
+                            to={"/recover-password"}
+                        >
+                            Forgot password?
+                        </Link>
+                    </Typography>
+                    <Typography>
+                        New here?{" "}
+                        <Link className="custom-link register-page__sign-up-link" to="/register">Sign up</Link>
                     </Typography>
                 </Box>
             </Container>

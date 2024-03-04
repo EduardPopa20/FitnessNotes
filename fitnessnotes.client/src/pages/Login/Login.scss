@@ -21,7 +21,7 @@
       }
       
       &--right {
-        height: 90%;
+        height: 100%;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -47,10 +47,6 @@
     &__third-party-button {
       width: 30px !important;
       height: 30px !important;
-    }
-
-    &__forgot-password {
-      color: map-get(variables.$colors, $key: mainColor)
     }
 
     &__input {

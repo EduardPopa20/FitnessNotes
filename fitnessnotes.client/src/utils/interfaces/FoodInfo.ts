@@ -1,0 +1,34 @@
+export default interface FoodInfo {
+    name: string;
+    calories: number;
+    proteins?: number;
+    carbohydrates?: number;
+    dietaryFiber?: number;
+    sugars?: number;
+    addedSugars?: number;
+    sugarAlcohols?: number;
+    fats?: number;
+    saturatedFats?: number;
+    polyunsaturatedFats?: number;
+    monounsaturatedFats?: number;
+    transFats?: number;
+    cholesterol?: number;
+    B1?: number;
+    B2?: number;
+    B3?: number;
+    B6?: number;
+    B12?: number;
+    c?: number;
+    calcium?: number;
+    chromium?: number;
+    D?: number;
+    E?: number;
+    folicAcid?: number;
+    K?: number;
+    iodine?: number;
+    iron?: number;
+    magnesium?: number;
+    potassium?: number;
+    selenium?: number;
+    zinc?: number;
+}

@@ -78,10 +78,31 @@ button:focus-visible {
   font-weight: 600 !important;
   color: #fff !important;
   background-color: map-get($map: variables.$colors, $key: secondaryColor) !important;
+  transition: 0.4s !important;
 
   &:hover {
     background-color: map-get($map: variables.$colors, $key: mainColor) !important;
     color: map-get($map: variables.$colors, $key: white) !important;
   }
 
+}
+
+.custom-link {
+  color: map-get(variables.$colors, $key: mainColorLighter);
+  &:hover {
+    color: map-get(variables.$colors, $key: mainColor);
+  }
+
+  &-invert {
+    color: map-get(variables.$colors, $key: white);
+    &:hover {
+      color: map-get(variables.$colors, $key: mainColor);
+    }
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none !important; 
+  margin: 0 !important; 
 }

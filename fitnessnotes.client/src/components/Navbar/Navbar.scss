@@ -1,0 +1,31 @@
+@use "../../scss/utils/variables" as variables;
+
+.navbar {
+  background-color: map-get(variables.$colors, $key: secondaryColor) !important;
+  &__logo {
+    text-align: center !important;
+    font-size: 24px;
+    margin-right: 50px;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    color: map-get(variables.$colors, $key: mainColor) !important;
+  }
+  &__hamburger {
+    color: map-get(variables.$colors, $key: mainColor) !important;
+    &-wrapper {
+        width: fit-content;
+    }
+  }
+  &__toolbar {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+}
+
+@media screen and (max-width: map-get(variables.$breakpoints, l)) {
+    .navbar {
+        &__logo {
+            margin-right: 0px !important;
+        }
+    }
+}
