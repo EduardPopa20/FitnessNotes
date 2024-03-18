@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, Typography, CircularProgress, Box } from '@mui/material';
 
 import FoodInfo from '../../utils/interfaces/FoodInfo';

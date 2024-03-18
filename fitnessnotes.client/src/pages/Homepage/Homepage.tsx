@@ -94,8 +94,6 @@ const foods: FoodInfo[] = [
 const Homepage = () => {
     return (
         <>
-            <Navbar />
-            <FoodCard foodInfo={foods[0]} />
         </>
     );
 }

@@ -1,0 +1,10 @@
+@use "../../scss/utils/variables" as variables;
+
+.modular-table {
+    &__delete-entry {
+        color: map-get(variables.$colors, $key: red) !important;
+    }
+    &__edit-entry {
+        color: map-get(variables.$colors, $key: mainColor) !important;
+    }
+}

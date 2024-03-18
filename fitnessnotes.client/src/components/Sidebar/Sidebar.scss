@@ -1,0 +1,11 @@
+@use "../../scss/utils/variables" as variables;
+
+.sidebar {
+    &__container {
+        color: map-get(variables.$colors, $key: secondaryColor) !important;
+        &--active {
+            background-color: map-get(variables.$colors, $key: mainColor) !important;
+            color: map-get(variables.$colors, $key: white) !important;
+        }
+    }
+}

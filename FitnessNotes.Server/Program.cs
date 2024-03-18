@@ -1,18 +1,53 @@
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using FitnessNotes.DataAccess.Context;
+using FitnessNotes.BusinessLogic;
+using Microsoft.AspNetCore.Hosting;
+using FitnessNotes.DataAccess;
+using FitnessNotes.WebApp.Code.ExtensionMethods;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+// Mappings
+builder.Services.AddAutoMapperConfigs();
+
+// UOF
+builder.Services.AddScoped<UnitOfWork>();
+
+// Services
+builder.Services.AddScoped<ServiceDependencies>();
+
+builder.Services.AddFitnessNotesBusinessLogic();
+
+
+builder.Services.AddDbContext<FitnessNotesContext>(
+        options => options.UseSqlServer(connectionString, builder =>
+        {
+            builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+        })
+    );
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors();
 
 var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-// Configure the HTTP request pipeline.
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5173"));
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,7 +58,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseRouting();
+
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllers();
+});
 
 app.MapFallbackToFile("/index.html");
 

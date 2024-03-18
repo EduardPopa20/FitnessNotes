@@ -2,7 +2,7 @@ import { FocusEvent, ChangeEvent, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { MenuItem, TextField, Grid, Box, Typography, Button, IconButton, InputAdornment } from "@mui/material";
-import { Cake, EmailOutlined, Height, Person, Phone, Scale, Visibility, VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,7 +10,6 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
-import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
 import HeightOutlinedIcon from '@mui/icons-material/HeightOutlined';
 import ScaleOutlinedIcon from '@mui/icons-material/ScaleOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -356,6 +355,7 @@ export default function FormWithMaterialUI() {
                             >
                                 {countries.map((country) => (
                                     <MenuItem key={country.code} value={country.code}>
+                                        <img style={{ marginRight: "20px" }} src={country.flag} alt={country.name}></img>
                                         {`+${country.phone} (${country.name})`}
                                     </MenuItem>
                                 ))}
