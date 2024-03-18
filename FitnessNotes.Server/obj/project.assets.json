@@ -9477,7 +9477,6 @@
       "EntityFramework >= 6.4.4",
       "FitnessNotes.BusinessLogic >= 1.0.0",
       "FitnessNotes.DataAccess >= 1.0.0",
-      "FluentValidation.AspNetCore >= 11.3.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.2",
       "Microsoft.AspNetCore.SpaProxy >= 8.*-*",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.2",
@@ -9535,10 +9534,6 @@
           "EntityFramework": {
             "target": "Package",
             "version": "[6.4.4, )"
-          },
-          "FluentValidation.AspNetCore": {
-            "target": "Package",
-            "version": "[11.3.0, )"
           },
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
             "target": "Package",
