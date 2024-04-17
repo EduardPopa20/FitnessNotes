@@ -10,3 +10,4 @@ C:\Users\eduard.popa\Desktop\FitnessNotes\FitnessNotes.Common\obj\Debug\net8.0\F
 C:\Users\eduard.popa\Desktop\FitnessNotes\FitnessNotes.Common\obj\Debug\net8.0\refint\FitnessNotes.Common.dll
 C:\Users\eduard.popa\Desktop\FitnessNotes\FitnessNotes.Common\obj\Debug\net8.0\FitnessNotes.Common.pdb
 C:\Users\eduard.popa\Desktop\FitnessNotes\FitnessNotes.Common\obj\Debug\net8.0\ref\FitnessNotes.Common.dll
+C:\Users\eduard.popa\Desktop\FitnessNotes\FitnessNotes.Common\obj\Debug\net8.0\FitnessNotes.Common.csproj.AssemblyReference.cache

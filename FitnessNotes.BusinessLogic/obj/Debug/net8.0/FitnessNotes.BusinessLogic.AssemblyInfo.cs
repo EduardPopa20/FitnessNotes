@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FitnessNotes.BusinessLogic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed590ba2843424603d745dbc5663d839fcff5dc5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6da7927f787ff434faa57c955816216e7dbf218d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FitnessNotes.BusinessLogic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FitnessNotes.BusinessLogic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

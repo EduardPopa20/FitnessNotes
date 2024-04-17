@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitnessNotes.BusinessLogic.Implementation.UserProfile.Models;
 using FitnessNotes.Common;
 using FitnessNotes.DataAccess;
 using System;
@@ -10,6 +11,7 @@ namespace FitnessNotes.BusinessLogic
     {
         protected readonly UnitOfWork UnitOfWork;
         protected readonly IMapper Mapper;
+        protected readonly CurrentUserDTO CurrentUser;
 
         public BaseService(ServiceDependencies serviceDependencies)
         {

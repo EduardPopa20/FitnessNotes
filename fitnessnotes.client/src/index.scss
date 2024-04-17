@@ -119,7 +119,21 @@ input[type=number]::-webkit-outer-spin-button {
   height: calc(100vh - 64px) !important;
 }
 
+@media screen and (max-width: map-get(variables.$breakpoints, l)) {
+  .main-content {
+    display: block !important;
+    height: fit-content !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .page-content {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
 .page-content {
+  box-sizing: border-box !important;
   padding: 20px !important;
   display: flex !important;
   justify-content: center !important;
@@ -129,4 +143,23 @@ input[type=number]::-webkit-outer-spin-button {
 footer {
   padding: 20px !important;
   background-color: #f0f0f0 !important;
+}
+
+.MuiFormHelperText-root {
+    color: map-get($map: variables.$colors, $key: red) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+}
+
+.input-error {
+    color-scheme: light dark !important;
+    font-synthesis: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    color: #FE1B1B !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-family: Roboto,Arial,sans-serif !important;
+    line-height: 1.66 !important;
+    text-align: left !important;
 }

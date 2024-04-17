@@ -2,6 +2,7 @@
 using FitnessNotes.BusinessLogic;
 using FitnessNotes.BusinessLogic.Implementation.Workouts.Models;
 using FitnessNotes.DataAccess.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Data.Entity;
 
 namespace FitnessNotes.BusinessLogic.Implementation.Workouts
@@ -27,6 +28,13 @@ namespace FitnessNotes.BusinessLogic.Implementation.Workouts
             var result = Mapper.Map<Workout, WorkoutModel> (workout);
             return result;
         }
+
+        //public WorkoutModel GetUserTodayWorkout([FromBody] string email)
+        //{
+        //    var todayWorkout = UnitOfWork.Workouts
+        //        .GetAll()
+                
+        //}
 
         //public async Task<WorkoutModel>? UpdateWorkout(int id, WorkoutModel workout)
         //{

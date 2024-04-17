@@ -18,9 +18,4 @@
     <ProjectReference Include="..\FitnessNotes.DataAccess\FitnessNotes.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Implementation\Auth\Login\Mappings\" />
-    <Folder Include="Implementation\Auth\Login\Models\" />
-  </ItemGroup>
-
 </Project>

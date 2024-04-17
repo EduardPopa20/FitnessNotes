@@ -2,10 +2,45 @@
 
 .sidebar {
     &__container {
+        width: 100%;
         color: map-get(variables.$colors, $key: secondaryColor) !important;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background-color: map-get(variables.$colors, $key: secondaryColor) !important;
+            color: map-get(variables.$colors, $key: mainColor) !important;
+        }
+
         &--active {
             background-color: map-get(variables.$colors, $key: mainColor) !important;
             color: map-get(variables.$colors, $key: white) !important;
         }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 30px;
+        
+        &__link {
+            width: 100%;
+            align-self: center;
+        }
+
+        &__button {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+    }
+}
+
+@media screen and (max-width: map-get(variables.$breakpoints, l)) {
+    .sidebar {
+        &__wrapper {
+            display: none !important;
+        }   
     }
 }

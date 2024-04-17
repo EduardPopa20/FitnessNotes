@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FitnessNotes.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfd235119ea91ba09d0a654d312b0ffa000c3e85")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6da7927f787ff434faa57c955816216e7dbf218d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FitnessNotes.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FitnessNotes.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

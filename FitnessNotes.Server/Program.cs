@@ -5,6 +5,10 @@ using FitnessNotes.BusinessLogic;
 using Microsoft.AspNetCore.Hosting;
 using FitnessNotes.DataAccess;
 using FitnessNotes.WebApp.Code.ExtensionMethods;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +16,7 @@ var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
+builder.Services.AddSingleton<IConfiguration>(configuration);
 
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
@@ -25,7 +30,7 @@ builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<ServiceDependencies>();
 
 builder.Services.AddFitnessNotesBusinessLogic();
-
+builder.Services.AddFitnessNotesCurrentUser();
 
 builder.Services.AddDbContext<FitnessNotesContext>(
         options => options.UseSqlServer(connectionString, builder =>
@@ -34,6 +39,23 @@ builder.Services.AddDbContext<FitnessNotesContext>(
         })
     );
 
+builder.Services.AddAuthentication("my-token")
+    .AddJwtBearer("my-token", o =>
+    {
+        o.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = configuration.GetConnectionString("Jwt:Issuer"),
+            ValidAudience = configuration.GetConnectionString("Jwt:Audience"),
+            ValidateIssuerSigningKey = true,
+
+            IssuerSigningKeys = new List<SecurityKey>
+            {
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetSection("Jwt").GetSection("SecretKey").Value))
+            }
+        };
+    }); ;
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -56,9 +78,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
+
+app.UseAuthentication();
 app.UseRouting();
+
+app.UseAuthorization();
 
 app.UseEndpoints(endpoints => {
     endpoints.MapControllers();

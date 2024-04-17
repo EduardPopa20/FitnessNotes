@@ -2,7 +2,7 @@
 
 .login-page {
     &__wrapper {
-      height: 100%;
+      height: 100% !important;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -11,6 +11,8 @@
     &__card {
       &-wrapper {
         width: 100% !important;
+        height: 100% !important;
+        padding: 50px;
       }
       &--left {
         flex: 1 !important;
@@ -21,12 +23,12 @@
       }
       
       &--right {
-        height: 100%;
         flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 20px;
         padding: 0 20px;
       }
     }
@@ -51,6 +53,8 @@
 
     &__input {
       width: 100%;
+      height: fit-content;
+      max-height: 350px !important;
     }
 
     &__form {
@@ -59,7 +63,7 @@
       flex-direction: column !important;
       justify-content: center !important;
       align-items: center !important;
-      gap: 30px;
+      gap: 10px;
     }
 }
 

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "WSuGt8id9jf2OTpH3Zplc4ZTfqnDZykugwl6ZuiwlHo9aTWF+SIgRnw6eidGSNv7ryGPkD/2O3ca0N5g91i/dA==",
+  "dgSpecHash": "xUmbIY8LaGw8T8fv680BdCrZWtJsz+yCrXbhp7T3mJrGQPTPvIiH6GYWMOn5c5a7Dr/Arknfy773FpmMk7wwTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\eduard.popa\\Desktop\\FitnessNotes\\FitnessNotes.DataAccess\\FitnessNotes.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eduard.popa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\eduard.popa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\eduard.popa\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\eduard.popa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\eduard.popa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\eduard.popa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

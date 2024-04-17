@@ -1,5 +1,6 @@
 ﻿using FitnessNotes.BusinessLogic.Implementation.Auth.Register.Models;
 using FitnessNotes.BusinessLogic.Implementation.Auth.Register.Validations;
+using FitnessNotes.Common.helpers;
 using FitnessNotes.DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -31,7 +32,7 @@ namespace FitnessNotes.BusinessLogic.Implementation.Auth.Register
 
             var newUser = Mapper.Map<User>(model);
 
-            newUser.HashedPassword = HashPassword(model.Password);
+            newUser.HashedPassword = HashingHelpers.HashPassword(model.Password);
 
             newUser.RoleId = 2;
 
@@ -41,13 +42,6 @@ namespace FitnessNotes.BusinessLogic.Implementation.Auth.Register
             UnitOfWork.SaveChanges();
 
             return (true, null);
-        }
-
-        private static string HashPassword(string password)
-        {
-            string salt = BCrypt.Net.BCrypt.GenerateSalt();
-
-            return BCrypt.Net.BCrypt.HashPassword(password, salt);
         }
     }
 }

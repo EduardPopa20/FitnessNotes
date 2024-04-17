@@ -23,8 +23,20 @@ namespace FitnessNotes.BusinessLogic.Implementation.Auth.Register.Validations
                 .Matches(@"[\!\?\*\.]+").WithMessage(AuthMessages.AtLeastOneSpecial);
 
             RuleFor(x => x.ConfirmPassword)
-            .NotEmpty().WithMessage(AuthMessages.RequiredField)
-            .Equal(x => x.Password).WithMessage(AuthMessages.DifferentPasswords);
+                .NotEmpty().WithMessage(AuthMessages.RequiredField)
+                .Equal(x => x.Password).WithMessage(AuthMessages.DifferentPasswords);
+
+            RuleFor(x => x.Birthday)
+                .NotEmpty().WithMessage(AuthMessages.RequiredField);
+
+            RuleFor(x => x.Country)
+                .NotEmpty().WithMessage(AuthMessages.RequiredField);
+
+            RuleFor(x => x.City)
+                .NotEmpty().WithMessage(AuthMessages.RequiredField);
+
+            RuleFor(x => x.Phone)
+                .NotEmpty().WithMessage(AuthMessages.RequiredField);
 
         }
     }

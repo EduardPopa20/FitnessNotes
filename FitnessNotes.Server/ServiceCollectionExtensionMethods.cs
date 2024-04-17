@@ -6,6 +6,13 @@ using FitnessNotes.BusinessLogic.Implementation.Workouts.Mappings;
 using FitnessNotes.BusinessLogic.Implementation.AdminNomenclators.FoodMeasurementUnits.Mappings;
 using FitnessNotes.BusinessLogic.Implementation.AdminNomenclators.DefaultExercises;
 using FitnessNotes.BusinessLogic.Implementation.AdminNomenclators.DefaultExercises.Mappings;
+using FitnessNotes.BusinessLogic.Implementation.Auth.Register;
+using FitnessNotes.BusinessLogic.Implementation.Auth.Register.Mappings;
+using FitnessNotes.BusinessLogic.Implementation.Auth.Login;
+using FitnessNotes.BusinessLogic.Implementation.UserProfile.Mappings;
+using FitnessNotes.BusinessLogic.Implementation.UserProfile;
+using FitnessNotes.BusinessLogic.Implementation.UserProfile.Models;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace FitnessNotes.WebApp.Code.ExtensionMethods
 {
@@ -17,6 +24,10 @@ namespace FitnessNotes.WebApp.Code.ExtensionMethods
             services.AddScoped<RoleService>();
             services.AddScoped<FoodMeasurementUnitService>();
             services.AddScoped<DefaultExerciseService>();
+            services.AddScoped<DefaultExerciseService>();
+            services.AddScoped<RegisterService>();
+            services.AddScoped <LoginService>();
+            services.AddScoped<UserService>();
 
             return services;
         }
@@ -27,30 +38,45 @@ namespace FitnessNotes.WebApp.Code.ExtensionMethods
             services.AddAutoMapper(typeof(RoleMappings));
             services.AddAutoMapper(typeof(FoodMeasurementUnitMappings));
             services.AddAutoMapper(typeof(DefaultExerciseMappings));
+            services.AddAutoMapper(typeof(RegisterMappings));
+            services.AddAutoMapper(typeof(UserMappings));
 
             return services;
         }
 
-        //public static IServiceCollection AddFitnessNotesCurrentUser(this IServiceCollection services)
-        //{
-        //    services.AddScoped(s =>
-        //    {
-        //        var accessor = s.GetService<IHttpContextAccessor>();
-        //        var httpContext = accessor.HttpContext;
-        //        var claims = httpContext.User.Claims;
+        public static IServiceCollection AddFitnessNotesCurrentUser(this IServiceCollection services)
+        {
+            services.AddScoped(s =>
+            {
+                var httpContext = s.GetService<IHttpContextAccessor>()?.HttpContext;
+                if (httpContext == null || httpContext.User.Claims.ToList().Count == 0)
+                {
+                    return new CurrentUserDTO
+                    {
+                        Id = -1,
+                        RoleId = -1,
+                        IsAuthenticated = false,
+                        Email = ""
+                    };
+                }
+            
+                var claims = httpContext.User.Claims;
+                var userIdClaim = claims?.FirstOrDefault(c => c.Type == "Id")?.Value;
+                var userRoleIdClaim = claims.FirstOrDefault(c => c.Type == "RoleId")?.Value;
 
-        //        var userIdClaim = claims?.FirstOrDefault(c => c.Type == "Id")?.Value;
-        //        var isParsingSuccessful = Guid.TryParse(userIdClaim, out Guid id);
+                int.TryParse(userIdClaim, out int userId);
+                int.TryParse(userRoleIdClaim, out int userRoleId);
 
-        //        return new CurrentUserDto
-        //        {
-        //            Id = id,
-        //            IsAuthenticated = httpContext.User.Identity.IsAuthenticated,
-        //            Email = httpContext.User.Identity.Name
-        //        };
-        //    });
+                return new CurrentUserDTO
+                {
+                    Id = userId,
+                    IsAuthenticated = httpContext.User.Identity.IsAuthenticated,
+                    Email = claims.ToList()[1].Value,
+                    Username = claims.ToList()[0].Value
+                };
+            });
 
-        //    return services;
-        //}
+            return services;
+        }
     }
 }

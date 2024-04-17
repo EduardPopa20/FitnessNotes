@@ -3,7 +3,11 @@
 .register-page {
     &__wrapper {
         width: 100% !important;
-        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: space-evenly !important;
+        gap: 30px;
     }
     &__form {
        width: 100% !important;
@@ -23,9 +27,13 @@
         align-items: flex-start;
         justify-content: center;
     }
+
+    &__datepicker .MuiButtonBase-root {
+        padding-right: 20px !important;
+    }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: map-get(variables.$breakpoints, m)) {
     .register-page {
         &__height-weight-container {
             flex-direction: column;
@@ -34,4 +42,9 @@
             padding: 0 20px !important;
         }
     }
+}
+
+
+#city {
+    margin-left: 10px !important;   
 }

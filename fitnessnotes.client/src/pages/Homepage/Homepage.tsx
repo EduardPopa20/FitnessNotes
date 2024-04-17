@@ -2,6 +2,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import FoodCard from "../../components/FoodCard/FoodCard";
 
 import FoodInfo from "../../utils/interfaces/FoodInfo";
+import { AuthSessionContext } from "../../layouts/AuthLayout";
+import { useContext } from "react";
 
 const foods: FoodInfo[] = [
     {
@@ -92,6 +94,7 @@ const foods: FoodInfo[] = [
 ];
 
 const Homepage = () => {
+    const ceva = useContext(AuthSessionContext);
     return (
         <>
         </>

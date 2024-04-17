@@ -46,7 +46,6 @@ namespace FitnessNotes.DataAccess
         public IRepository<WorkoutExercise> WorkoutExercises => 
             workoutExercises ??= new BaseRepository<WorkoutExercise>(_context);
 
-
         public void SaveChanges()
         {
             _context.SaveChanges();

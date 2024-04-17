@@ -1,13 +1,18 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Box } from '@mui/material';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 import TableEntry from '../../utils/interfaces/TableEntry';
 
+import nomenclatorServices from '../../services/adminNomenclators/nomenclatorServices';
+
 import "./ModularTable.scss"
 
 interface Props {
     entries: TableEntry[]
+    triggerRefetch: Dispatch<SetStateAction<boolean>>
 }
 
 const ModularTable = (props: Props) => {
@@ -18,6 +23,10 @@ const ModularTable = (props: Props) => {
     }
 
     const columns: string[] = Object.keys(entries[0]);
+
+    const handleDeleteItem = (id: number) => {
+        nomenclatorServices.deleteItem(id);
+    }
 
     return (
         <TableContainer component={Paper} sx={{ width: '100%' }}>
@@ -64,6 +73,7 @@ const ModularTable = (props: Props) => {
                                 <IconButton
                                     className='modular-table__delete-entry'
                                     aria-label="delete-entry"
+                                    onClick={() => handleDeleteItem(index)}
                                 >
                                     <DeleteOutlineOutlinedIcon />
                                 </IconButton>

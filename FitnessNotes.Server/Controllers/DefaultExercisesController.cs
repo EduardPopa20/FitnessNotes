@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FitnessNotes.BusinessLogic.Implementation.AdminNomenclators.DefaultExercises;
 using FitnessNotes.BusinessLogic.Implementation.AdminNomenclators.DefaultExercises.Models;
+using FitnessNotes.Server.Attributes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FitnessNotes.Server.Controllers
 {
@@ -16,8 +18,10 @@ namespace FitnessNotes.Server.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetDefaultExercises()
         {
+            var ceva = HttpContext.Request;
             var defaultExercisesModel = await defaultExerciseService.GetAllDefaultExercises();
 
             return defaultExercisesModel == null ? NotFound() : Ok(defaultExercisesModel);

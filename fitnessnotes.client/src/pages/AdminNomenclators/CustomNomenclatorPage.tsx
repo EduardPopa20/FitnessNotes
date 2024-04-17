@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { useLocation } from "react-router-dom";
 
@@ -11,6 +11,8 @@ import CreateNomenclatorCard from "../../components/CreateNomenclatorCard/Create
 import TableEntry from "../../utils/interfaces/TableEntry";
 import nomenclatorTitles from "../../utils/constants/nomenclatorTitles";
 import nomenclatorServices from "../../services/adminNomenclators/nomenclatorServices";
+import { ErrorAlertContext, SuccessAlertContext } from "../../layouts/AlertLayout";
+
 
 interface CustomNomenclatorPageProps {
     name: string
@@ -19,8 +21,8 @@ interface CustomNomenclatorPageProps {
 const CustomNomenclatorPage = (props: CustomNomenclatorPageProps) => {
     const { name } = props;
 
-
-    console.log("Component name is " + name);
+    const successContext = useContext(SuccessAlertContext)
+    const errorContext = useContext(ErrorAlertContext)
 
     const location = useLocation();
     const [currentPath, setCurrentPath] = useState<string>(location.pathname);
@@ -38,16 +40,10 @@ const CustomNomenclatorPage = (props: CustomNomenclatorPageProps) => {
             async () => {
                 const response = await nomenclatorServices.fetchItems(name)
                 setTableData(response?.data)
+
             }
         )();
     }, [])
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const response = await defaultExercisesServices.fetchDefaultExercises();
-    //         setDefaultExercises(response?.data);
-    //     })()
-    // }, [isOldData])
 
     return (
         <Box
@@ -63,7 +59,7 @@ const CustomNomenclatorPage = (props: CustomNomenclatorPageProps) => {
             {!isCreating ?
                 (
                     <>
-                        <ModularTable entries={tableData} />
+                        <ModularTable triggerRefetch={setIsOldData} entries={tableData} />
                         <IconButton
                             className="custom-button"
                             sx={{ width: "fit-content" }}

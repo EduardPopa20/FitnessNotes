@@ -80,11 +80,6 @@ const Navbar = () => {
                                             open={Boolean(anchorElNav)}
                                             onClose={handleCloseNavMenu}
                                         >
-                                            {pages.map((page) => (
-                                                <MenuItem key={page.text} onClick={handleCloseNavMenu} >
-                                                    <Link className="custom-link" to={page.route}>{page.text}</Link>
-                                                </MenuItem>
-                                            ))}
                                         </Menu>
                                     )
                                     :
@@ -103,28 +98,10 @@ const Navbar = () => {
                     >
                         FitnessNotes
                     </Link>
-                    {isMobile ?
-                        (
-                            ""
-                        ) :
-                        (
-                            <Box sx={{ display: "flex", flexGrow: 1, gap: "20px" }}>
-                                {pages.map((page) => (
-                                    <Link
-                                        className="custom-link-invert"
-                                        to={page.route}
-                                        key={page.text}
-                                    >
-                                        {page.text}
-                                    </Link>
-                                ))}
-                            </Box>
-                        )
-                    }
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Remy Sharp" />
                             </IconButton>
                         </Tooltip>
                         <Menu

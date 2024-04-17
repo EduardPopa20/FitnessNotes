@@ -221,23 +221,26 @@ public partial class FitnessNotesContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Birthday).HasColumnName("birthday");
+            entity.Property(e => e.City)
+                .HasMaxLength(50)
+                .HasColumnName("city");
             entity.Property(e => e.Country)
                 .HasMaxLength(50)
                 .HasColumnName("country");
-            entity.Property(e => e.County)
-                .HasMaxLength(50)
-                .HasColumnName("county");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .HasColumnName("email");
             entity.Property(e => e.HashedPassword)
-                .HasMaxLength(100)
+                .HasMaxLength(500)
                 .HasColumnName("hashed_password");
             entity.Property(e => e.Height).HasColumnName("height");
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)
                 .HasColumnName("phone");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
+            entity.Property(e => e.Username)
+                .HasMaxLength(20)
+                .HasColumnName("username");
             entity.Property(e => e.Weight).HasColumnName("weight");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)

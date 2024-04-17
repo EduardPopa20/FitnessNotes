@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5iX7dGY2NPYpK2G99UPSaFE2JxfhcQ8J3oCP7YbU43wRi09QFf9CuKjQJiQF92moFbiqt+UinHPFFJjBbtyy8g==",
+  "dgSpecHash": "+4xBvYMqcRAExxrQATD6EDdG6SjKVziZCFgHVmdrRQ3vR8J9S3JbeHDFuBsxc8CoNslqllf5fqK/42z9O0khrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\eduard.popa\\Desktop\\FitnessNotes\\FitnessNotes.Common\\FitnessNotes.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eduard.popa\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
